@@ -29,6 +29,7 @@ function forward(forward){
 
 function vowel(word){
 
+
     let vowels = 'aeiou';
     let vowelsFound = ''
 
@@ -49,6 +50,8 @@ function vowel(word){
     
     
 }
+
+
 
 
 //sum
