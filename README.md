@@ -1,0 +1,1 @@
+This consist of daily task from different code challenges. The aim is to improve my problem solving skill with little projects, this helps solidify my understanding
