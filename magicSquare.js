@@ -1,67 +1,113 @@
-function magicSquare (square){
- 
-    let target = 15
-    let angle = square.length
- //row
-    for(let i = 0; i < angle ; i++){
 
-        let rowSum = 0;
 
-        for (let j = 0; j<angle; j++){
 
-            rowSum+=square[i][j]
-        }
 
-        if(rowSum !== target){
-            return false
-        }
+function magicSquare(square) {
+  let target = 15;
+  let angle = square.length;
+  //row
+  for (let i = 0; i < angle; i++) {
+    let rowSum = 0;
+
+    for (let j = 0; j < angle; j++) {
+      rowSum += square[i][j];
     }
 
-    //column
-    for (let j = 0; j<angle; j++){
-        let colSum = 0;
+    if (rowSum !== target) {
+      return false;
+    }
+  }
 
-        for(let i= 0; i< angle; i++){
-             colSum+=square[i][j]
-        }
+  //column
+  for (let j = 0; j < angle; j++) {
+    let colSum = 0;
 
-         if(colSum !== target){
-            return false
-        }
-        }
+    for (let i = 0; i < angle; i++) {
+      colSum += square[i][j];
+    }
 
-        //diagonal
+    if (colSum !== target) {
+      return false;
+    }
+  }
 
-         let diagonalSum = 0
-        for (let i = 0; i < angle ; i++){
-           diagonalSum+=square[i][i]
-            
+  //diagonal
+
+  
+
+  let diagonalSum = 0;
+  for (let i = 0; i < angle; i++) {
+    diagonalSum += square[i][i];
+  }
+  if (diagonalSum !== target) {
+    return false;
+  }
+
+    // [
+//   [2, 7, 6],
+//   [9, 5, 1],
+//   [4, 3, 8],
+// ];
+
+  let antiDiagonalSum = 0;
+
+  for (let i = 0; i < angle; i++) {
+    antiDiagonalSum += square[i][angle - 1 - i];
+  }
+  if (antiDiagonalSum !== target) {
+    return false;
+  }
+
+  return true;
+}
+
+const magNumber = [1,2,3,4,5,6,7,8,9 ]
+
+console.log(magicSquare(magNumber));
+
+
+
+function findingmagicNumber(nums) {
+
+  let solution = [];
+
+  for (let a = 0; a < nums.length; a++) {
+    for (b = 0; b < nums.length; b++) {
+      if (b === a) continue;
+      for (let c = 0; c < nums.length; c++) {
+        if ([a, b].includes(c)) continue;
+        for (let d = 0; d < nums.length; d++) {
+          if ([a, b, c].includes(d)) continue;
+          for (let e = 0; e < nums.length; e++) {
+            if ([a, b, c, d].includes(e)) continue;
+            for (let f = 0; f < nums.length; f++) {
+              if ([a, b, c, d, e].includes(f)) continue;
+              for (let g = 0; g < nums.length; g++) {
+                if ([a, b, c, d, e, f].includes(g)) continue;
+                for (let h = 0; h < nums.length; h++) {
+                  if ([a, b, c, d, e, f, g].includes(h)) continue;
+                  for (let i = 0; i < nums.length; i++) {
+                    if ([a, b, c, d, e, f, g, h].includes(i)) continue;
+
+                    const grid = [
+                      [nums[a], nums[b], nums[c]],
+                      [nums[d], nums[e], nums[f]],
+                      [nums[g], nums[h], nums[i]],
+                    ];
+                    if (magicSquare(grid)) {
+                      solution.push(grid);
+                    }
+                  }
+                }
+              }
+            }
           }
-            if(diagonalSum !== target){
-            return false
-           }
-        
-
-        let antiDiagonalSum = 0;
-
-        for(let i = 0; i <angle ; i++){
-            antiDiagonalSum +=square[i][angle-1-i]
-        
         }
-        if(antiDiagonalSum !== target){
-            return false
-        }
-    
-        return true
+      }
     }
+  }
 
-    
+  return solution;
+}
 
-    const magNumber = [
-  [2, 7, 6],
-  [9, 5, 1],
-  [4, 3, 8]
-];
-console.log(magicSquare(magNumber))
-
-
+console.log(findingmagicNumber([1,2,3,4,5,6,7,8,9]))
