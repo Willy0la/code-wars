@@ -27,29 +27,6 @@ function forward(forward){
 
 //find the vowel
 
-function vowel(word){
-
-
-    let vowels = 'aeiou';
-    let vowelsFound = ''
-
-    for (let i = 0; i< word.length; i++){
-       
-        for(let j = 0 ; j< vowels.length; j++){
-
-            if(word[i].toLowerCase() === vowels[j] ){
-                 
-                vowelsFound += word[i]
-                
-            }
-        }
-        
-    }
-    console.log(vowelsFound)
-    console.log(vowelsFound.length+ 'vowels') ;
-    
-    
-}
 
 
 
@@ -72,7 +49,7 @@ function sumNumber (arr){
 
 function reduceArray(arr){
 
-  let sum = arr.reduce((init, curr)=<{
+  let sum = arr.reduce((init, curr)=>{
         return init + curr
   },0)
 
@@ -81,7 +58,7 @@ function reduceArray(arr){
 
 function forSum(arr){
    let add =0
-   arr.forEach(element =< {
+   arr.forEach(element => {
 
      console.log (add+=element)
         
@@ -112,7 +89,7 @@ console.log(largest)
 function reduLargest(arr){
     //this loop from the initial starting from zero then check if the first number is greater than the previous number and loop till the end,, it checks the lrgest number from the loops
 
-    let reducer = arr.reduce((init, curr )=<{
+    let reducer = arr.reduce((init, curr )=>{
         if(curr < init){
             return curr
         }else{
@@ -125,7 +102,7 @@ function reduLargest(arr){
 
 const maxer = Math.max(...[1,4,6,8,9,0])
 
-const checkSmaller = (arr)=<{
+const checkSmaller = (arr)=>{
 
     let smallest = arr[0]
 
@@ -138,8 +115,8 @@ const checkSmaller = (arr)=<{
     console.log(smallest)
 }
 
-const reduceSmaller =(arr)=<{
-    let reduSmaller = arr.reduce((init, curr)=<{
+const reduceSmaller =(arr)=>{
+    let reduSmaller = arr.reduce((init, curr)=>{
 
         if(init< curr){
             return init
