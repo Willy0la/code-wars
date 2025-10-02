@@ -28,3 +28,12 @@ function isVowel(char)
 {
     return char === 'a' || char === 'e' || char === 'i' || char === 'o' || char === 'u' || false;
 }
+
+
+
+const tarrr =      [
+  [2, 7, 6],
+  [9, 5, 1],
+  [4, 3, 8],];
+
+  console .log (tarrr[2][1])

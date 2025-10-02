@@ -43,11 +43,7 @@ function magicSquare(square) {
     return false;
   }
 
-    // [
-//   [2, 7, 6],
-//   [9, 5, 1],
-//   [4, 3, 8],
-// ];
+
 
   let antiDiagonalSum = 0;
 
@@ -61,14 +57,46 @@ function magicSquare(square) {
   return true;
 }
 
-const magNumber = [[ 8, 3, 4 ], [ 1, 5, 9 ], [ 6, 7, 2 ] ]
+ const magNumber = [[ 8, 3, 4 ],
+                    [ 1, 5, 9 ],
+                     [ 6, 7, 2 ] ]
 
-console.log(magicSquare(magNumber));
+// console.log(magicSquare(magNumber));
 
 
 
 function findingmagicNumber(nums) {
 
+
+     if(!Array.isArray(nums)){
+        throw new Error('input must be an array of 9 numbers')
+    }
+
+    if(nums.length !== 9){
+        throw new Error('Must provide exactly 9 numbers')
+    }
+
+   
+
+    for(let i = 0; i < nums.length; i++){
+        let current = nums[i]
+
+        if(typeof current !== 'number' || Number.isNaN(current)){
+            throw new Error(`Invalid Number`);
+        }
+
+        if(current <1 ||current > 9){
+            throw new Error( 'input  should be numbers  from 1 to 9')
+        }
+
+        for  (let j = i+1 ; j<nums.length; j++){
+            if(nums[j] === current){
+                throw new Error(`Ensure you dont have one number, written twice `)
+            }
+        }
+    }
+
+  
   let solution;
 
   for (let a = 0; a < nums.length; a++) {
@@ -94,6 +122,8 @@ function findingmagicNumber(nums) {
                       [nums[d], nums[e], nums[f]],
                       [nums[g], nums[h], nums[i]],
                     ];
+
+            
                     if (magicSquare(grid)) {
                       solution =grid ;
                     }
@@ -110,4 +140,5 @@ function findingmagicNumber(nums) {
   return solution;
 }
 
-console.log(findingmagicNumber([9,2,3,7,5,6,1,8,4]))
+ console.log(findingmagicNumber([1,2,3,4,5,6,7,8,10]))
+// console.log(findingmagicNumber(9,1,2,3,4,5,6,7,8))
