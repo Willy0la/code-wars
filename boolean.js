@@ -15,3 +15,18 @@ function bool (boolean){
 }
 
 console.log(bool('sd'))
+
+function newBool (age){
+
+age = true
+
+if(typeof age === 'number'){
+    throw new Error('Age must be a number')
+}
+if(age){
+    return 'Yes'
+}else{return "No"}
+
+}
+
+console.log(newBool(223))
